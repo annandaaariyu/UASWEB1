@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Informasi</title>
+
+<style>
+/* ===== RESET ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ===== BODY ===== */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: radial-gradient(circle at top, #1e293b, #020617);
+    color: #e5e7eb;
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    padding: 18px 30px;
+    margin: 30px auto;
+    width: fit-content;
+    background: rgba(30,41,59,.85);
+    border-radius: 50px;
+    backdrop-filter: blur(12px);
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #c7d2fe;
+    padding: 8px 18px;
+    border-radius: 20px;
+    transition: .3s;
+}
+
+.navbar a:hover {
+    background: rgba(255,255,255,.15);
+}
+
+.navbar a.active {
+    background: #6366f1;
+    color: #fff;
+    box-shadow: 0 0 20px rgba(99,102,241,.8);
+}
+
+/* ===== HEADER ===== */
+header {
+    text-align: center;
+    margin-top: 60px;
+}
+
+header h1 {
+    font-size: 42px;
+}
+
+header p {
+    margin-top: 8px;
+    color: #94a3b8;
+}
+
+/* ===== CONTENT ===== */
+.info-container {
+    width: 80%;
+    margin: 80px auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
+    gap: 30px;
+}
+
+/* ===== CARD ===== */
+.info-card {
+    background: rgba(255,255,255,.06);
+    padding: 30px;
+    border-radius: 22px;
+    backdrop-filter: blur(10px);
+    transition: .4s;
+}
+
+.info-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 25px 45px rgba(0,0,0,.4);
+}
+
+.info-card h3 {
+    margin-bottom: 12px;
+    color: #e0e7ff;
+}
+
+.info-card p, .info-card li {
+    color: #94a3b8;
+    line-height: 1.7;
+}
+
+/* ===== COLOR ACCENT ===== */
+.info-card {
+    position: relative;
+    overflow: hidden;
+}
+
+/* garis aksen atas */
+.info-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+}
+
+/* TENTANG SAYA */
+.about::before {
+    background: linear-gradient(90deg, #8b5cf6, #6366f1);
+}
+.about:hover {
+    box-shadow: 0 25px 45px rgba(139,92,246,0.35);
+}
+
+/* AKTIVITAS */
+.activity::before {
+    background: linear-gradient(90deg, #38bdf8, #0ea5e9);
+}
+.activity:hover {
+    box-shadow: 0 25px 45px rgba(56,189,248,0.35);
+}
+
+/* KEAHLIAN */
+.skill::before {
+    background: linear-gradient(90deg, #4ade80, #22c55e);
+}
+.skill:hover {
+    box-shadow: 0 25px 45px rgba(74,222,128,0.35);
+}
+
+/* TUJUAN */
+.goal::before {
+    background: linear-gradient(90deg, #fb923c, #f97316);
+}
+.goal:hover {
+    box-shadow: 0 25px 45px rgba(251,146,60,0.35);
+}
+
+
+/* ===== LIST ===== */
+.info-card ul {
+    padding-left: 20px;
+}
+
+/* ===== RESPONSIVE GLOBAL ===== */
+@media (max-width: 768px) {
+
+    /* NAVBAR jadi scroll jika penuh */
+    .navbar {
+        flex-wrap: wrap;
+        gap: 10px;
+        padding: 12px 20px;
+        width: 90%;
+        border-radius: 25px;
+    }
+
+    .navbar a {
+        padding: 6px 14px;
+        font-size: 14px;
+    }
+
+    /* Header title mengecil */
+    header h1 {
+        font-size: 30px;
+    }
+
+    /* Container lebar */
+    .media-section,
+    .info-container,
+    .kontak {
+        width: 90%;
+    }
+}
+
+/* HP KECIL (max 480px) */
+@media (max-width: 480px) {
+
+    header h1 {
+        font-size: 26px;
+    }
+
+    .navbar {
+        flex-direction: column;
+        width: 100%;
+        gap: 5px;
+    }
+
+    .navbar a {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<nav class="navbar">
+    <a href="index.html">Home</a>
+    <a href="profile.html">Profile</a>
+    <a href="karya dan projek.html">Karya & Projek</a>
+    <a href="media.html">Media</a>
+    <a class="active" href="#">Informasi</a>
+    <a href="kontak.html">Kontak</a>
+</nav>
+
+<header>
+    <h1>Informasi</h1>
+    <p>Informasi dan aktivitas terbaru.</p>
+</header>
+
+<section class="info-container">
+
+    <div class="info-card about">
+        <h3>Tentang Saya</h3>
+        <p>
+            Saya merupakan mahasiswa yang tertarik pada pengembangan website,
+            desain UI/UX, dan teknologi digital. Saya senang mempelajari hal baru
+            serta mengembangkan kemampuan melalui proyek nyata.
+        </p>
+    </div>
+
+    <div class="info-card activity">
+        <h3>Aktivitas</h3>
+        <ul>
+            <li>Mengembangkan website portofolio pribadi</li>
+            <li>Mengerjakan tugas dan proyek perkuliahan</li>
+            <li>Belajar HTML, CSS, JavaScript</li>
+            <li>Mengikuti perkembangan teknologi digital</li>
+        </ul>
+    </div>
+
+    <div class="info-card skill">
+        <h3>Keahlian</h3>
+        <ul>
+            <li>HTML & CSS (Layout & Responsive)</li>
+            <li>JavaScript Dasar</li>
+            <li>Desain UI Modern</li>
+            <li>Penggunaan GitHub</li>
+        </ul>
+    </div>
+
+    <div class="info-card goal">
+        <h3>Tujuan</h3>
+        <p>
+            Membangun portofolio digital yang profesional, meningkatkan kemampuan
+            teknis, dan mempersiapkan diri untuk berkarier di bidang teknologi
+            informasi dan pengembangan web.
+        </p>
+    </div>
+
+</section>
+
+</body>
+</html>

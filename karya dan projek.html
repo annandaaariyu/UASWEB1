@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Karya & Projek</title>
+
+<style>
+/* ===== RESET ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ===== BODY ===== */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: radial-gradient(circle at top, #1f2937, #020617);
+    color: #e5e7eb;
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    padding: 18px 25px;
+    margin: 30px auto;
+    width: fit-content;
+    background: rgba(30, 41, 59, 0.85);
+    border-radius: 50px;
+    backdrop-filter: blur(12px);
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #c7d2fe;
+    padding: 8px 18px;
+    border-radius: 20px;
+    transition: 0.3s;
+    font-weight: 500;
+}
+
+.navbar a:hover {
+    background: rgba(255,255,255,0.15);
+}
+
+.navbar a.active {
+    background: #6366f1;
+    color: white;
+    box-shadow: 0 0 20px rgba(99,102,241,0.8);
+}
+
+/* ===== HEADER ===== */
+header {
+    text-align: center;
+    margin-top: 50px;
+}
+
+header h1 {
+    font-size: 42px;
+}
+
+header p {
+    color: #94a3b8;
+    margin-top: 8px;
+}
+
+/* ===== PORTFOLIO ===== */
+#portfolio {
+    margin-top: 80px;
+    padding: 0 8% 80px;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 34px;
+    margin-bottom: 50px;
+}
+
+/* ===== GRID ===== */
+.row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+}
+
+/* ===== CARD ===== */
+.portfolio-item {
+    background: rgba(255,255,255,0.06);
+    border-radius: 22px;
+    padding: 20px;
+    text-align: center;
+    backdrop-filter: blur(12px);
+    transition: 0.4s;
+    opacity: 0;
+    transform: translateY(40px);
+}
+
+.portfolio-item.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.portfolio-item:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.45);
+}
+
+/* ===== IMAGE ===== */
+.portfolio-item img {
+    width: 100%;
+    border-radius: 16px;
+    margin-bottom: 15px;
+}
+
+/* ===== TEXT ===== */
+.portfolio-item h5 {
+    font-size: 20px;
+    color: #e0e7ff;
+}
+
+.portfolio-item p {
+    font-size: 14px;
+    margin-top: 8px;
+    color: #94a3b8;
+}
+
+/* ===== MODAL ===== */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    backdrop-filter: blur(5px);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    max-width: 80%;
+    max-height: 80%;
+    border-radius: 20px;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.7);
+    animation: zoom 0.3s ease;
+}
+
+@keyframes zoom {
+    from { transform: scale(0.7); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.close {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    font-size: 40px;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.close:hover {
+    color: #6366f1;
+}
+
+@media (max-width: 600px) {
+    .navbar {
+        position: fixed;
+        top: 10px;
+        width: 100%;
+        padding: 10px;
+    }
+
+    .navbar ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        border-radius: 20px;
+    }
+
+    .navbar a {
+        font-size: 14px;
+        padding: 6px 12px;
+    }
+}
+
+/* ===== RESPONSIVE GLOBAL ===== */
+@media (max-width: 768px) {
+
+    /* NAVBAR jadi scroll jika penuh */
+    .navbar {
+        flex-wrap: wrap;
+        gap: 10px;
+        padding: 12px 20px;
+        width: 90%;
+        border-radius: 25px;
+    }
+
+    .navbar a {
+        padding: 6px 14px;
+        font-size: 14px;
+    }
+
+    /* Header title mengecil */
+    header h1 {
+        font-size: 30px;
+    }
+
+    /* Container lebar */
+    .media-section,
+    .info-container,
+    .kontak {
+        width: 90%;
+    }
+}
+
+/* HP KECIL (max 480px) */
+@media (max-width: 480px) {
+
+    header h1 {
+        font-size: 26px;
+    }
+
+    .navbar {
+        flex-direction: column;
+        width: 100%;
+        gap: 5px;
+    }
+
+    .navbar a {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+</style>
+</head>
+
+<body>
+
+<nav class="navbar">
+    <a href="index.html">Home</a>
+    <a href="profile.html">Profile</a>
+    <a class="active" href="#">Karya & Projek</a>
+    <a href="media.html">Media</a>
+    <a href="informasi.html">Informasi</a>
+    <a href="kontak.html">Kontak</a>
+</nav>
+
+<header>
+    <h1>Karya & Projek</h1>
+    <p>Daftar proyek dan karya terbaik.</p>
+</header>
+
+<section id="portfolio">
+    <h2 class="section-title">Portfolio</h2>
+
+    <div class="row">
+        <div class="portfolio-item">
+            <img src="image/image3.png" alt="Project 1">
+            <h5>Project 1</h5>
+            <p>Menghitung total belanja menggunakan HTML, CSS, & JavaScript.</p>
+        </div>
+
+        <div class="portfolio-item">
+            <img src="image/image12.png" alt="Project 2">
+            <h5>Project 2</h5>
+            <p>Menggunakan function untuk input dan menyimpan data mahasiswa dan usia menggunakan HTML, CSS, & JavaScript.</p>
+        </div>
+
+        <div class="portfolio-item">
+            <img src="image/image5.png" alt="Project 3">
+            <h5>Project 3</h5>
+            <p>Pembuatan form pendaftaran karyawan baru menggunakan HTML untuk menginput data pelamar secara online.</p>
+        </div>
+
+        <div class="portfolio-item">
+            <img src="image/image7.png" alt="Project 4">
+            <h5>Project 4</h5>
+            <p>Website statis dengan desain modern dan responsif.</p>
+        </div>
+
+        <div class="portfolio-item">
+            <img src="image/image13.png" alt="Project 5">
+            <h5>Project 5</h5>
+            <p>Website ini merupakan portofolio pribadi Annanda Rizki Yulianti yang menampilkan profil, 
+               latar belakang pendidikan, serta informasi kontak sebagai web developer menggunakan HTML dan CSS.</p>
+        </div>
+
+        <div class="portfolio-item">
+            <img src="image/image11.png" alt="Project 6">
+            <h5>Project 6</h5>
+            <p>Website portfolio sederhana menggunakan HTML & CSS.</p>
+        </div>
+
+        <div class="portfolio-item">
+            <img src="image/image15.png" alt="Project 7">
+            <h5>Project 7</h5>
+            <p>Membuat Website Welcome to My Home Page menggunakan CSS Link.</p>
+        </div>
+
+        <div class="portfolio-item">
+            <img src="image/image10.png" alt="Project 8">
+            <h5>Project 8</h5>
+            <p>Membuat tabel Welcome to My Page menggunakan HTML dan CSS.</p>
+        </div>
+
+        <div class="portfolio-item">
+            <img src="image/image6.png" alt="Project 9">
+            <h5>Project 9</h5>
+            <p>Membuat Layout Mockup Berita menggunakan HTML & CSS.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ===== MODAL IMAGE ===== -->
+<div class="modal" id="imageModal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="modalImg">
+</div>
+
+<script>
+/* ===== ANIMASI MUNCUL SAAT SCROLL ===== */
+const items = document.querySelectorAll('.portfolio-item');
+
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('show');
+        }
+    });
+}, { threshold: 0.2 });
+
+items.forEach(item => observer.observe(item));
+
+/* ===== MODAL IMAGE ===== */
+const modal = document.getElementById("imageModal");
+const modalImg = document.getElementById("modalImg");
+const closeBtn = document.querySelector(".close");
+
+document.querySelectorAll(".portfolio-item img").forEach(img => {
+    img.addEventListener("click", () => {
+        modal.style.display = "flex";
+        modalImg.src = img.src;
+    });
+});
+
+closeBtn.onclick = () => modal.style.display = "none";
+
+modal.onclick = (e) => {
+    if (e.target === modal) {
+        modal.style.display = "none";
+    }
+};
+</script>
+
+</body>
+</html>

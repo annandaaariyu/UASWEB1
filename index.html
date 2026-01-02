@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Collage</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #111 0%, #222 100%);
+            font-family: 'Fredoka', sans-serif;
+            color: #e5e7eb;
+            overflow-x: hidden;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            padding: 25px;
+        }
+
+        .navbar ul {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+            background: rgba(30, 41, 59, 0.9);
+            padding: 15px 35px;
+            border-radius: 50px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .navbar a {
+            color: #e5e7eb;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .navbar a:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .navbar a.active {
+            background: #6366f1;
+            color: #fff;
+            box-shadow: 0 0 15px rgba(99, 102, 241, 0.6);
+        }
+
+        .hero {
+            text-align: center;
+            padding: 120px 20px 80px; /* Adjusted padding to position below navbar */
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.4) 100%);
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin: 0 0 10px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin: 0;
+            opacity: 0.9;
+        }
+
+        .hero span {
+            background: linear-gradient(45deg, #818cf8, #a78bfa);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+
+        .collage-wrapper {
+            background: #000;
+            padding: 80px 60px;
+            border-radius: 30px;
+            position: relative;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+            margin: 0 auto;
+            max-width: 800px;
+            animation: slideIn 1.2s ease-out 0.5s both;
+        }
+
+        /* Name tag */
+        .name-tag {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            background: linear-gradient(45deg, #f9a8d4, #fb7185);
+            padding: 6px 14px;
+            font-size: 14px;
+            letter-spacing: 1px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(249, 168, 212, 0.3);
+        }
+
+        /* Title */
+        .collage-title {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 0;
+        }
+
+        .collage-title span {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 110px;
+            font-size: 70px;
+            font-weight: 700;
+            color: #111;
+            box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.5);
+            transform: rotate(var(--r));
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+
+        /* Hover effect */
+        .collage-title span:hover {
+            transform: scale(1.08) rotate(var(--r));
+            box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.7);
+        }
+
+        /* Variasi warna & rotasi */
+        .c1 { background: linear-gradient(45deg, #93c5fd, #60a5fa); --r: -4deg; }
+        .c2 { background: linear-gradient(45deg, #fde68a, #fbbf24); --r: 3deg; }
+        .c3 { background: linear-gradient(45deg, #f9a8d4, #fb7185); --r: -2deg; }
+        .c4 { background: linear-gradient(45deg, #fbbf24, #f59e0b); --r: 4deg; }
+        .c5 { background: linear-gradient(45deg, #fca5a5, #f87171); --r: -3deg; }
+        .c6 { background: linear-gradient(45deg, #fde68a, #fbbf24); --r: 2deg; }
+        .c7 { background: linear-gradient(45deg, #c7d2fe, #a78bfa); --r: -4deg; }
+        .c8 { background: linear-gradient(45deg, #bae6fd, #38bdf8); --r: 3deg; }
+        .c9 { background: linear-gradient(45deg, #f9a8d4, #fb7185); --r: -2deg; }
+
+        /* Role tag */
+        .role-tag {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background: linear-gradient(45deg, #fde68a, #fbbf24);
+            padding: 6px 14px;
+            font-size: 14px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(253, 230, 138, 0.3);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .navbar ul {
+                gap: 15px;
+                padding: 10px 20px;
+            }
+
+            .hero {
+                padding: 100px 20px 60px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .collage-wrapper {
+                padding: 50px 30px;
+                max-width: 90%;
+            }
+
+            .collage-title span {
+                width: 65px;
+                height: 80px;
+                font-size: 42px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar ul {
+                flex-direction: column;
+                gap: 10px;
+                padding: 10px;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .collage-title span {
+                width: 50px;
+                height: 60px;
+                font-size: 32px;
+            }
+        }
+
+        @media (max-width: 600px) {
+    .navbar {
+        position: fixed;
+        top: 10px;
+        width: 100%;
+        padding: 10px;
+    }
+
+    .navbar ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        border-radius: 20px;
+    }
+
+    .navbar a {
+        font-size: 14px;
+        padding: 6px 12px;
+    }
+}
+
+@media (max-width: 360px) {
+    .collage-title span {
+        width: 42px;
+        height: 55px;
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 1.5rem;
+        line-height: 1.3;
+    }
+
+    .hero p {
+        font-size: 0.95rem;
+    }
+}
+
+/* ===== RESPONSIVE GLOBAL ===== */
+@media (max-width: 768px) {
+
+    /* NAVBAR jadi scroll jika penuh */
+    .navbar {
+        flex-wrap: wrap;
+        gap: 10px;
+        padding: 12px 20px;
+        width: 90%;
+        border-radius: 25px;
+    }
+
+    .navbar a {
+        padding: 6px 14px;
+        font-size: 14px;
+    }
+
+    /* Header title mengecil */
+    header h1 {
+        font-size: 30px;
+    }
+
+    /* Container lebar */
+    .media-section,
+    .info-container,
+    .kontak {
+        width: 90%;
+    }
+}
+
+/* HP KECIL (max 480px) */
+@media (max-width: 480px) {
+
+    header h1 {
+        font-size: 26px;
+    }
+
+    .navbar {
+        flex-direction: column;
+        width: 100%;
+        gap: 5px;
+    }
+
+    .navbar a {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <ul>
+            <li><a class="active" href="index.html">Home</a></li>
+            <li><a href="profile.html">Profile</a></li>
+            <li><a href="karya dan projek.html">Karya & Projek</a></li>
+            <li><a href="media.html">Media</a></li>
+            <li><a href="informasi.html">Informasi</a></li>
+            <li><a href="kontak.html">Kontak</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <h1>Hi, Selamat Datang di Website <span>Annanda</span></h1>
+        <p>Mahasiswa & Web Developer dengan desain modern.</p>
+    </section>
+
+    <div class="collage-wrapper">
+        <div class="name-tag">Annanda Rizki Yulianti</div>
+
+        <h1 class="collage-title">
+            <span class="c1">P</span>
+            <span class="c2">O</span>
+            <span class="c3">R</span>
+            <span class="c4">T</span>
+            <span class="c5">F</span>
+            <span class="c6">O</span>
+            <span class="c7">L</span>
+            <span class="c8">I</span>
+            <span class="c9">O</span>
+        </h1>
+
+</body>
+</html>

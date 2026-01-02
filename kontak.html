@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kontak</title>
+
+<style>
+/* ===== RESET ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ===== BODY ===== */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: radial-gradient(circle at top, #1e293b, #020617);
+    color: #e5e7eb;
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    padding: 18px 30px;
+    margin: 30px auto;
+    width: fit-content;
+    background: rgba(30,41,59,.85);
+    border-radius: 50px;
+    backdrop-filter: blur(12px);
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #c7d2fe;
+    padding: 8px 18px;
+    border-radius: 20px;
+    transition: .3s;
+}
+
+.navbar a:hover {
+    background: rgba(255,255,255,.15);
+}
+
+.navbar a.active {
+    background: #6366f1;
+    color: #fff;
+    box-shadow: 0 0 20px rgba(99,102,241,.8);
+}
+
+/* ===== KONTAK ===== */
+.kontak {
+    width: 85%;
+    max-width: 900px;
+    margin: 80px auto;
+    background: rgba(255,255,255,.06);
+    padding: 50px;
+    border-radius: 30px;
+    backdrop-filter: blur(12px);
+    text-align: center;
+}
+
+.kontak h2 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.kontak p {
+    color: #94a3b8;
+    margin-bottom: 35px;
+}
+
+/* ===== FORM ===== */
+.form-kontak {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.form-kontak input,
+.form-kontak textarea {
+    padding: 15px 18px;
+    border-radius: 14px;
+    border: none;
+    outline: none;
+    background: rgba(255,255,255,.1);
+    color: #e5e7eb;
+    font-size: 14px;
+}
+
+.form-kontak input::placeholder,
+.form-kontak textarea::placeholder {
+    color: #94a3b8;
+}
+
+.form-kontak input:focus,
+.form-kontak textarea:focus {
+    box-shadow: 0 0 0 2px #6366f1;
+}
+
+/* ===== BUTTON ===== */
+.form-kontak button {
+    margin-top: 10px;
+    padding: 14px;
+    border: none;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #6366f1, #818cf8);
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.form-kontak button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(99,102,241,.6);
+}
+
+/* ===== SOSIAL ===== */
+.contact {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.contact h2 {
+    font-size: 32px;
+}
+
+.contact p {
+    color: #94a3b8;
+    margin: 10px 0 25px;
+}
+
+.social {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.social a {
+    padding: 12px 22px;
+    border-radius: 25px;
+    background: rgba(255,255,255,.08);
+    color: #c7d2fe;
+    text-decoration: none;
+    transition: .3s;
+}
+
+.social a:hover {
+    background: #6366f1;
+    color: white;
+    box-shadow: 0 10px 25px rgba(99,102,241,.7);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+    .kontak {
+        padding: 35px 25px;
+    }
+    .social {
+        flex-direction: column;
+    }
+}
+
+/* ===== RESPONSIVE GLOBAL ===== */
+@media (max-width: 768px) {
+
+    /* NAVBAR jadi scroll jika penuh */
+    .navbar {
+        flex-wrap: wrap;
+        gap: 10px;
+        padding: 12px 20px;
+        width: 90%;
+        border-radius: 25px;
+    }
+
+    .navbar a {
+        padding: 6px 14px;
+        font-size: 14px;
+    }
+
+    /* Header title mengecil */
+    header h1 {
+        font-size: 30px;
+    }
+
+    /* Container lebar */
+    .media-section,
+    .info-container,
+    .kontak {
+        width: 90%;
+    }
+}
+
+/* HP KECIL (max 480px) */
+@media (max-width: 480px) {
+
+    header h1 {
+        font-size: 26px;
+    }
+
+    .navbar {
+        flex-direction: column;
+        width: 100%;
+        gap: 5px;
+    }
+
+    .navbar a {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<nav class="navbar">
+    <a href="index.html">Home</a>
+    <a href="profile.html">Profile</a>
+    <a href="karya dan projek.html">Karya & Projek</a>
+    <a href="media.html">Media</a>
+    <a href="informasi.html">Informasi</a>
+    <a class="active" href="#">Kontak</a>
+</nav>
+
+<section class="kontak">
+    <h2>Hubungi Saya</h2>
+    <p>
+        Silakan hubungi saya melalui form berikut.
+        Saya akan merespons secepat mungkin.
+    </p>
+
+    <form class="form-kontak" id="contactForm">
+        <input type="text" placeholder="Nama Lengkap" required>
+        <input type="email" placeholder="Email" required>
+        <textarea rows="4" placeholder="Pesan" required></textarea>
+        <button type="submit">Kirim Pesan</button>
+    </form>
+</section>
+
+<section class="contact">
+    <h2>Mari Terhubung</h2>
+    <p>Tertarik bekerja sama atau diskusi?</p>
+    <div class="social">
+        <a href="https://github.com/annandaaariyu" target="_blank">GitHub</a>
+        <a href="https://www.instagram.com/seng_bengbeng?igsh=bHh4N3oxdHg0bThl" target="_blank">Instagram</a>
+        <a href="https://www.linkedin.com/in/annandarizki-yulianti-b637a52a6/" target="_blank">LinkedIn</a>
+    </div>
+</section>
+
+<script>
+/* ===== FORM SUBMIT EFFECT ===== */
+document.getElementById("contactForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+    alert("Terima kasih! Pesan kamu berhasil dikirim 🚀");
+    this.reset();
+});
+</script>
+
+</body>
+</html>

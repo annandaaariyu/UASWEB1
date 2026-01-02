@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Media</title>
+
+<style>
+/* ===== RESET ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ===== BODY ===== */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: radial-gradient(circle at top, #1e293b, #020617);
+    color: #e5e7eb;
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    padding: 18px 30px;
+    margin: 30px auto;
+    width: fit-content;
+    background: rgba(30,41,59,.85);
+    border-radius: 50px;
+    backdrop-filter: blur(12px);
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #c7d2fe;
+    padding: 8px 18px;
+    border-radius: 20px;
+    transition: .3s;
+}
+
+.navbar a:hover {
+    background: rgba(255,255,255,.15);
+}
+
+.navbar a.active {
+    background: #6366f1;
+    color: #fff;
+    box-shadow: 0 0 20px rgba(99,102,241,.8);
+}
+
+/* ===== HEADER ===== */
+header {
+    text-align: center;
+    margin-top: 60px;
+}
+
+header h1 {
+    font-size: 42px;
+}
+
+header p {
+    margin-top: 8px;
+    color: #94a3b8;
+}
+
+/* ===== SECTION ===== */
+.media-section {
+    margin: 90px auto;
+    width: 85%;
+}
+
+.media-section h2 {
+    font-size: 28px;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #e0e7ff;
+}
+
+/* ===== GRID ===== */
+.media-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+    gap: 30px;
+}
+
+/* ===== CARD ===== */
+.media-card {
+    background: rgba(255,255,255,.06);
+    padding: 20px;
+    border-radius: 22px;
+    backdrop-filter: blur(10px);
+    transition: .4s;
+    opacity: 0;
+    transform: translateY(40px);
+}
+
+.media-card.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.media-card:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 25px 45px rgba(0,0,0,.4);
+}
+
+/* ===== IMAGE ===== */
+.media-card img {
+    width: 100%;
+    border-radius: 14px;
+}
+
+/* ===== VIDEO ===== */
+.media-card video {
+    width: 100%;
+    border-radius: 14px;
+}
+
+/* ===== AUDIO ===== */
+.media-card audio {
+    width: 100%;
+}
+
+/* ===== DOC ===== */
+.doc {
+    padding: 25px;
+    text-align: center;
+}
+
+.doc a {
+    text-decoration: none;
+    color: #a5b4fc;
+    font-weight: 600;
+}
+
+/* ===== RESPONSIVE GLOBAL ===== */
+@media (max-width: 768px) {
+
+    /* NAVBAR jadi scroll jika penuh */
+    .navbar {
+        flex-wrap: wrap;
+        gap: 10px;
+        padding: 12px 20px;
+        width: 90%;
+        border-radius: 25px;
+    }
+
+    .navbar a {
+        padding: 6px 14px;
+        font-size: 14px;
+    }
+
+    /* Header title mengecil */
+    header h1 {
+        font-size: 30px;
+    }
+
+    /* Container lebar */
+    .media-section,
+    .info-container,
+    .kontak {
+        width: 90%;
+    }
+}
+
+/* HP KECIL (max 480px) */
+@media (max-width: 480px) {
+
+    header h1 {
+        font-size: 26px;
+    }
+
+    .navbar {
+        flex-direction: column;
+        width: 100%;
+        gap: 5px;
+    }
+
+    .navbar a {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+img, video {
+    max-width: 100%;
+    height: auto;
+}
+
+</style>
+</head>
+
+<body>
+
+<nav class="navbar">
+    <a href="index.html">Home</a>
+    <a href="profile.html">Profile</a>
+    <a href="karya dan projek.html">Karya & Projek</a>
+    <a class="active" href="#">Media</a>
+    <a href="informasi.html">Informasi</a>
+    <a href="kontak.html">Kontak</a>
+</nav>
+
+<header>
+    <h1>Media</h1>
+    <p>Dokumentasi, publikasi, dan media pendukung lainnya.</p>
+</header>
+
+<!-- ===== GAMBAR ===== -->
+<section class="media-section">
+<h2>📸 Gambar</h2>
+<div class="media-grid">
+    <div class="media-card"><img src="foto/foto1.jpeg"></div>
+    <div class="media-card"><img src="foto/foto2.jpeg"></div>
+    <div class="media-card"><img src="foto/foto3.jpeg"></div>
+</div>
+<div class="media-grid">
+    <div class="media-card"><img src="foto/foto4.jpg"></div>
+    <div class="media-card"><img src="foto/foto5.jpg"></div>
+    <div class="media-card"><img src="foto/foto6.jpg"></div>
+</div>
+</section>
+
+<!-- ===== VIDEO ===== -->
+<section class="media-section">
+<h2>🎥 Video</h2>
+<div class="media-grid">
+    <div class="media-card">
+        <video controls src="video/MARS UNIVERSITAS PAMULANG BY PSM GITA SASMITA (online-video-cutter.com).mp4"></video>
+    </div>
+    <div class="media-card">
+        <video controls src="video/Tamu Undangan - LAVORA Ft Ratih SDE (Official Music Video) _ Minggu Esok Adus Mruput Gas Tipis (online-video-cutter.com).mp4"></video>
+    </div>
+</div>
+</section>
+
+<!-- ===== AUDIO ===== -->
+<section class="media-section">
+<h2>🎧 Audio</h2>
+<div class="media-grid">
+    <div class="media-card">
+        <audio controls src="audio/wwd.mp3juice.blog - kimi ni todoke ringtone where are the fmty girlies app cliptone aesthetic ringtone iphone.mp3"></audio>
+    </div>
+    <div class="media-card">
+        <audio controls src="audio/wwd.mp3juice.blog - My Ringtone foryou anime aesthetic.mp3"></audio>
+    </div>
+</div>
+</section>
+
+<!-- ===== DOKUMEN ===== -->
+<section class="media-section">
+<h2>📄 Dokumen</h2>
+<div class="media-grid">
+    <div class="media-card doc">
+        <a href="dokumen/KODE-ETIK.pdf" target="_blank">📑 Kode Etik Universitas Pamulang</a>
+    </div>
+    <div class="media-card doc">
+        <a href="dokumen/SK-KAK.pdf" target="_blank">📑 Kredit Aktivitas Kemahasiswaan</a>
+    </div>
+</div>
+</section>
+
+<script>
+/* ===== ANIMASI SCROLL ===== */
+const cards = document.querySelectorAll('.media-card');
+
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('show');
+        }
+    });
+}, { threshold: 0.2 });
+
+cards.forEach(card => observer.observe(card));
+</script>
+
+</body>
+</html>

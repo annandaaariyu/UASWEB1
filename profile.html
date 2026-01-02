@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Profile</title>
+
+<style>
+    body {
+background: linear-gradient(135deg, #020617, #1e1b4b);
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    padding: 18px 30px;
+    margin: 30px auto;
+    width: fit-content;
+    background: rgba(30,41,59,.85);
+    border-radius: 50px;
+    backdrop-filter: blur(12px);
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #c7d2fe;
+    padding: 8px 18px;
+    border-radius: 20px;
+    transition: .3s;
+}
+
+.navbar a:hover {
+    background: rgba(255,255,255,.15);
+}
+
+.navbar a.active {
+    background: #6366f1;
+    color: #fff;
+    box-shadow: 0 0 20px rgba(99,102,241,.8);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #455564, #7a8699);
+    padding: 40px;
+}
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+}
+
+/* HERO */
+.hero-card {
+    display: flex;
+    gap: 30px;
+    background: #fff6e5;
+    padding: 40px;
+    border-radius: 30px;
+    box-shadow: 8px 8px 0 #3f3d56;
+    margin-bottom: 40px;
+}
+
+.hero-left img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 6px dashed #6366f1;
+}
+
+.hero-right small {
+    letter-spacing: 2px;
+    color: #555;
+}
+
+.hero-right h1 {
+    font-size: 48px;
+    margin: 10px 0;
+    color: #3f3d56;
+}
+
+.tags span {
+    display: inline-block;
+    background: #ffd6e0;
+    padding: 6px 14px;
+    border-radius: 20px;
+    margin-right: 10px;
+    font-size: 14px;
+}
+
+/* GRID */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.card {
+    background: #fff6e5;
+    padding: 30px;
+    border-radius: 25px;
+    box-shadow: 6px 6px 0 #3f3d56;
+}
+
+.card h3 {
+    margin-top: 0;
+    color: #3f3d56;
+}
+
+.icons span {
+    display: inline-block;
+    background: #e0e7ff;
+    padding: 8px 14px;
+    border-radius: 12px;
+    margin: 6px 6px 0 0;
+    font-size: 14px;
+}
+
+@media (max-width: 600px) {
+    .navbar {
+        position: fixed;
+        top: 10px;
+        width: 100%;
+        padding: 10px;
+    }
+
+    .navbar ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        border-radius: 20px;
+    }
+
+    .navbar a {
+        font-size: 14px;
+        padding: 6px 12px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-left img {
+        margin: auto;
+    }
+
+    .hero-right h1 {
+        font-size: 32px;
+    }
+}
+
+/* ===== RESPONSIVE GLOBAL ===== */
+@media (max-width: 768px) {
+
+    /* NAVBAR jadi scroll jika penuh */
+    .navbar {
+        flex-wrap: wrap;
+        gap: 10px;
+        padding: 12px 20px;
+        width: 90%;
+        border-radius: 25px;
+    }
+
+    .navbar a {
+        padding: 6px 14px;
+        font-size: 14px;
+    }
+
+    /* Header title mengecil */
+    header h1 {
+        font-size: 30px;
+    }
+
+    /* Container lebar */
+    .media-section,
+    .info-container,
+    .kontak {
+        width: 90%;
+    }
+}
+
+/* HP KECIL (max 480px) */
+@media (max-width: 480px) {
+
+    header h1 {
+        font-size: 26px;
+    }
+
+    .navbar {
+        flex-direction: column;
+        width: 100%;
+        gap: 5px;
+    }
+
+    .navbar a {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+
+</style>
+</head>
+
+<body>
+<nav class="navbar">
+<a href="index.html">Home</a>
+<a class="active" href="profile.html">Profile</a>
+<a href="karya dan projek.html">Karya & Projek</a>
+<a href="media.html">Media</a>
+<a href="informasi.html">Informasi</a>
+<a href="kontak.html">Kontak</a>
+</nav>
+
+
+<div class="container">
+
+    <!-- HERO -->
+    <section class="hero-card">
+        <div class="hero-left">
+            <img src="image/annan2.jpeg" alt="Profile">
+        </div>
+        <div class="hero-right">
+            <small>MY NAME IS</small>
+            <h1>Annanda Rizki Yulianti</h1>
+            <div class="tags">
+                <span>Web Enthusiast</span>
+                <span>UI Design</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- GRID INFO -->
+    <section class="grid">
+        <div class="card">
+            <h3>Education</h3>
+            <p><b> Universitas Pamulang - Sistem Informasi S1</b><br>2025 - Sekarang</p>
+        </div>
+
+        <div class="card">
+            <h3>Born in</h3>
+            <p>Cilacap<br>28 July 2006</p>
+        </div>
+
+        <div class="card">
+            <h3>Softwares I Use</h3>
+            <div class="icons">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JS</span>
+            </div>
+        </div>
+    </section>
+
+</div>
+</body>
+</html>
